@@ -28,20 +28,13 @@ void setup() {
 void draw() {
   background(0);
   
-  if(!recording){
-    textFont(font,20);
-    fill(200);
-    text(int(frameRate),20,30);
-  }
-  
-  System.out.println(frameCount);
-  
   for (Boid boid : flock) {
     boid.edges();
     boid.flock(flock);
     boid.update();
     boid.show();
   }
+  
   if(recording)
-    saveFrame("frames/#####.png");
+    saveFrame("frames/######.png");
 }
